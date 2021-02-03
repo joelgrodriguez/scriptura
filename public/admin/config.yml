@@ -1,0 +1,68 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: public/img
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '_'
+collections:
+  - label: 'Blog'
+    name: 'blog'
+    folder: '_lib/posts'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+  - label: 'Pages'
+    name: 'page'
+    folder: '_lib/pages'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+  - label: 'Products'
+    name: 'product'
+    folder: '_lib/products'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime', required: true }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image', required: true }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: true }
+  - label: 'Categories'
+    name: 'category'
+    folder: '_lib/categories'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'text', required: true }
+      - { label: 'Featured Image', name: 'thumbnail', widget: 'image' }
+  - name: "settings"
+    label: "Settings"
+    extension: "json"
+    editor:
+      preview: false
+    files:
+      - file: "_settings/navigation.json"
+        label: "Navigation"
+        name: "navigation"
+        fields: 
+          - name: menu
+            label: Menu
+            widget: list
+            fields:
+            - name: links
+              label: Links
+              widget: list
+              fields: 
+                - {name: title}
+                - {name: url}

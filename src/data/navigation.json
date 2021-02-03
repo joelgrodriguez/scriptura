@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "links": [
+        {
+          "title": "About",
+          "url": "/about"
+        },
+        {
+          "title": "Shop",
+          "url": "shop"
+        }
+      ]
+    }
+  ]
+}
